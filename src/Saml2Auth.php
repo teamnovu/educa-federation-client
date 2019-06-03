@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Saml;
+namespace Teamnovu\SamlClient;
 
 use OneLogin\Saml2\Auth;
 use OneLogin\Saml2\Error;
@@ -61,12 +61,12 @@ class Saml2Auth
      *
      * @return string|null If $stay is True, it return a string with the SLO URL + LogoutRequest + parameters
      */
-    public function login($returnTo = null, $parameters = [], $forceAuthn = false, $isPassive = false, $stay = false, $setNameIdPolicy = true)
-    {
-        $auth = $this->auth;
+    // public function login($returnTo = null, $parameters = [], $forceAuthn = false, $isPassive = false, $stay = false, $setNameIdPolicy = true)
+    // {
+    //     $auth = $this->auth;
 
-        return $auth->login($returnTo, $parameters, $forceAuthn, $isPassive, $stay, $setNameIdPolicy);
-    }
+    //     return $auth->login($returnTo, $parameters, $forceAuthn, $isPassive, $stay, $setNameIdPolicy);
+    // }
 
     /**
      * Initiate a saml2 logout flow. It will close session on all other SSO services. You should close
@@ -83,12 +83,12 @@ class Saml2Auth
      *
      * @throws Error
      */
-    public function logout($returnTo = null, $nameId = null, $sessionIndex = null, $nameIdFormat = null, $stay = false, $nameIdNameQualifier = null)
-    {
-        $auth = $this->auth;
+    // public function logout($returnTo = null, $nameId = null, $sessionIndex = null, $nameIdFormat = null, $stay = false, $nameIdNameQualifier = null)
+    // {
+    //     $auth = $this->auth;
 
-        return $auth->logout($returnTo, [], $nameId, $sessionIndex, $stay, $nameIdFormat, $nameIdNameQualifier);
-    }
+    //     return $auth->logout($returnTo, [], $nameId, $sessionIndex, $stay, $nameIdFormat, $nameIdNameQualifier);
+    // }
 
     /**
      * Process a Saml response (assertion consumer service)

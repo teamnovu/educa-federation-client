@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Saml;
+namespace Teamnovu\SamlClient;
 
 use OneLogin\Saml2\Auth;
 
@@ -98,5 +98,16 @@ class Saml2User
     public function getNameId()
     {
         return $this->auth->getNameId();
+    }
+
+    public function getIntendedUrl()
+    {
+        if ($_POST['RelayState']) {
+            return $_POST['RelayState'];
+        } elseif ($_GET['RelayState']) {
+            return $_GET['RelayState'];
+        }
+
+        return null;
     }
 }
