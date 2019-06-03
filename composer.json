@@ -22,6 +22,7 @@
         "phpseclib/phpseclib": "^2.0"
     },
     "require-dev": {
+        "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^7.0"
     },
     "autoload": {
