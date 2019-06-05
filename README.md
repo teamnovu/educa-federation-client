@@ -1,4 +1,4 @@
-# Very short description of the package
+# Educa Federation Client
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/teamnovu/saml-client.svg?style=flat-square)](https://packagist.org/packages/teamnovu/educa-federation-client)
 [![Build Status](https://img.shields.io/travis/teamnovu/educa-federation-client/master.svg?style=flat-square)](https://travis-ci.org/teamnovu/educa-federation-client)
