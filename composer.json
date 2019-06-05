@@ -3,9 +3,9 @@
     "description": "",
     "keywords": [
         "teamnovu",
-        "saml-client"
+        "educa-federation-client"
     ],
-    "homepage": "https://github.com/teamnovu/saml-client",
+    "homepage": "https://github.com/teamnovu/educa-federation-client",
     "license": "MIT",
     "type": "library",
     "authors": [
