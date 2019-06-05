@@ -84,7 +84,7 @@ To generate the needed data you can use the following command. **Please change t
 
 The command will generate a `sp.crt` and a `sp.key` file.
 
-You now have the options to add the contents to the config or load them directly from the filesystem. **Don't forget to remove the header and footer from the certificate.**
+You now have the options to add the contents to the config or load them directly from the filesystem. **Don't forget to remove the header and footer from the certificate(`-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`).**
 
 ### Package
 
