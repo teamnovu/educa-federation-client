@@ -18,7 +18,6 @@ return [
         'privateKey' => file_get_contents(__DIR__.'/sp.key'),
 
         // Identifier (URI) of the SP entity.
-        // Leave blank to use the 'saml_metadata' route.
         'entityId' => 'http://localhost/saml/sp/metadata',
 
         // Specifies info about where and how the <AuthnResponse> message MUST be
@@ -26,7 +25,6 @@ return [
         'assertionConsumerService' => [
             // URL Location where the <Response> from the IdP will be returned,
             // using HTTP-POST binding.
-            // Leave blank to use the 'saml_acs' route
             'url' => 'http://localhost/saml/acs',
         ],
         // Specifies info about where and how the <Logout Response> message MUST be
@@ -35,7 +33,6 @@ return [
         'singleLogoutService' => [
             // URL Location where the <Response> from the IdP will be returned,
             // using HTTP-Redirect binding.
-            // Leave blank to use the 'saml_sls' route
             'url' => 'http://localhost/saml/logout',
         ],
     ],
