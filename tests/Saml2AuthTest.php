@@ -50,4 +50,19 @@ class Saml2AuthTest extends TestCase
         $this->assertEquals('test@example.com', $user->getNameId());
         $this->assertEquals('http://localhost/relay-state', $user->getIntendedUrl());
     }
+
+    /** @test */
+    public function it_can_generate_the_metadata_xml_content()
+    {
+        // Arrange
+        $settings = require(__DIR__.'/Fixtures/settings.php');
+        $client = Saml2AuthFactory::make($settings);
+
+        // Act
+        $metadata = $client->getMetadata();
+
+        // Assert
+        $this->assertNotNull($metadata);
+
+    }
 }
