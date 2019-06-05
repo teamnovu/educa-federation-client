@@ -1,24 +1,25 @@
 <?php
+
 namespace Teamnovu\SamlClient\Tests\Support;
 
-use LightSaml\Model\Assertion\EncryptedAssertionWriter;
-use LightSaml\Credential\X509Certificate;
-use LightSaml\Credential\KeyHelper;
-use LightSaml\Model\Assertion\Assertion;
 use LightSaml\Helper;
-use LightSaml\Model\Assertion\Issuer;
-use LightSaml\Model\Assertion\Subject;
-use LightSaml\Model\Assertion\NameID;
 use LightSaml\SamlConstants;
+use LightSaml\Credential\KeyHelper;
+use LightSaml\Model\Assertion\Issuer;
+use LightSaml\Model\Assertion\NameID;
+use LightSaml\Model\Assertion\Subject;
+use LightSaml\Model\Assertion\Assertion;
+use LightSaml\Model\Assertion\Attribute;
+use LightSaml\Credential\X509Certificate;
+use LightSaml\Model\Assertion\Conditions;
+use RobRichards\XMLSecLibs\XMLSecurityKey;
+use LightSaml\Model\Assertion\AuthnContext;
+use LightSaml\Model\Assertion\AuthnStatement;
+use LightSaml\Model\Assertion\AttributeStatement;
+use LightSaml\Model\Assertion\AudienceRestriction;
 use LightSaml\Model\Assertion\SubjectConfirmation;
 use LightSaml\Model\Assertion\SubjectConfirmationData;
-use LightSaml\Model\Assertion\Conditions;
-use LightSaml\Model\Assertion\AudienceRestriction;
-use LightSaml\Model\Assertion\AuthnStatement;
-use LightSaml\Model\Assertion\AuthnContext;
-use LightSaml\Model\Assertion\AttributeStatement;
-use LightSaml\Model\Assertion\Attribute;
-use RobRichards\XMLSecLibs\XMLSecurityKey;
+use LightSaml\Model\Assertion\EncryptedAssertionWriter;
 use LightSaml\Context\Profile\Helper\MessageContextHelper;
 
 class SamlHelper
@@ -37,7 +38,7 @@ class SamlHelper
         $signMessage = true,
         $encryptAssertion = true
     ) {
-        $certificate =  (new X509Certificate())->setData($idpCert);
+        $certificate = (new X509Certificate())->setData($idpCert);
         $privateKey = KeyHelper::createPrivateKey($idpPrivateKey, '', false, XMLSecurityKey::RSA_SHA256);
 
         $assertion = new Assertion();

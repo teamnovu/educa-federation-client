@@ -2,10 +2,10 @@
 
 namespace Teamnovu\SamlClient\Tests;
 
+use LightSaml\ClaimTypes;
 use PHPUnit\Framework\TestCase;
 use Teamnovu\SamlClient\Saml2AuthFactory;
 use Teamnovu\SamlClient\Tests\Support\SamlHelper;
-use LightSaml\ClaimTypes;
 
 class Saml2AuthTest extends TestCase
 {
@@ -13,7 +13,7 @@ class Saml2AuthTest extends TestCase
     public function it_can_setup_a_new_instance_with_default_settings()
     {
         // Arrange
-        $settings = require(__DIR__.'/Fixtures/settings.php');
+        $settings = require __DIR__.'/Fixtures/settings.php';
         $attributes = [
             ClaimTypes::EMAIL_ADDRESS => 'test@example.com',
             ClaimTypes::COMMON_NAME => 'John Doe',
@@ -55,7 +55,7 @@ class Saml2AuthTest extends TestCase
     public function it_can_generate_the_metadata_xml_content()
     {
         // Arrange
-        $settings = require(__DIR__.'/Fixtures/settings.php');
+        $settings = require __DIR__.'/Fixtures/settings.php';
         $client = Saml2AuthFactory::make($settings);
 
         // Act
@@ -63,6 +63,5 @@ class Saml2AuthTest extends TestCase
 
         // Assert
         $this->assertNotNull($metadata);
-
     }
 }

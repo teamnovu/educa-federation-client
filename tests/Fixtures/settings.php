@@ -88,7 +88,7 @@ return [
         */
         'signMetadata' => false,
 
-        /** signatures and encryptions required **/
+        /* signatures and encryptions required **/
 
         // Indicates a requirement for the <samlp:Response>, <samlp:LogoutRequest> and
         // <samlp:LogoutResponse> elements received by this SP to be signed.
