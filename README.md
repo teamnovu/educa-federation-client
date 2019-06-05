@@ -1,6 +1,7 @@
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/teamnovu/saml-client.svg?style=flat-square)](https://packagist.org/packages/teamnovu/saml-client)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/teamnovu/saml-client.svg?style=flat-square)](https://packagist.org/packages/teamnovu/educa-federation-client)
+[![Build Status](https://img.shields.io/travis/teamnovu/educa-federation-client/master.svg?style=flat-square)](https://travis-ci.org/teamnovu/educa-federation-client)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
