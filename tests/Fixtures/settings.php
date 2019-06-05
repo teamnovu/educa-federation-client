@@ -33,7 +33,7 @@ return [
         'singleLogoutService' => [
             // URL Location where the <Response> from the IdP will be returned,
             // using HTTP-Redirect binding.
-            'url' => 'http://localhost/saml/logout',
+            'url' => null, // not yet supported
         ],
     ],
 
@@ -51,7 +51,7 @@ return [
         'singleLogoutService' => [
             // URL Location of the IdP where the SP will send the SLO Request,
             // using HTTP-Redirect binding.
-            'url' => 'http://localhost/logout',
+            'url' => null, // not yet supported
         ],
         // Public x509 certificate of the IdP
         'x509cert' => file_get_contents(__DIR__.'/idp.crt'),
