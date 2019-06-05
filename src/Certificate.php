@@ -49,7 +49,6 @@ class Certificate
         return $this;
     }
 
-
     public function setOrganizationUnit($organizationUnit)
     {
         $this->organizationUnit = $organizationUnit;
@@ -112,7 +111,7 @@ class Certificate
         $rsa = new RSA();
         $keys = $rsa->createKey($this->keyLength ? $this->keyLength : 4096);
         $privatekey = $keys['privatekey'];
-        $publickey =  $keys['publickey'];
+        $publickey = $keys['publickey'];
 
         $privKey = new RSA();
         $privKey->loadKey($privatekey);
@@ -132,16 +131,16 @@ class Certificate
 
         $x509 = new X509();
 
-        if($this->startDate) {
+        if ($this->startDate) {
             $x509->setStartDate($this->startDate);
         }
 
-        if($this->expiryDate) {
+        if ($this->expiryDate) {
             $x509->setEndDate($this->expiryDate);
         }
 
         $result = $x509->sign($issuer, $subject);
-        $key  = $privKey->getPrivateKey();
+        $key = $privKey->getPrivateKey();
         $cert = $x509->saveX509($result);
 
         return [
@@ -150,7 +149,8 @@ class Certificate
         ];
     }
 
-    private function createDn() {
+    private function createDn()
+    {
         return "/C={$this->country}/ST={$this->stateOrProvinceName}/L={$this->locality}/O={$this->organization}/OU={$this->organizationUnit}/CN={$this->commonName}";
     }
 }

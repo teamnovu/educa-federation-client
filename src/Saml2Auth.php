@@ -32,7 +32,7 @@ class Saml2Auth
     }
 
     /**
-     * The user info from the assertion
+     * The user info from the assertion.
      * @return Saml2User
      */
     public function getSaml2User()
@@ -41,8 +41,8 @@ class Saml2Auth
     }
 
     /**
-     * The ID of the last message processed
-     * @return String
+     * The ID of the last message processed.
+     * @return string
      */
     public function getLastMessageId()
     {
@@ -93,7 +93,7 @@ class Saml2Auth
 
     /**
      * Process a Saml response (assertion consumer service)
-     * When errors are encountered, it returns an array with proper description
+     * When errors are encountered, it returns an array with proper description.
      */
     public function acs(): void
     {
@@ -115,7 +115,7 @@ class Saml2Auth
 
     /**
      * Process a Saml response (assertion consumer service)
-     * returns an array with errors if it can not logout
+     * returns an array with errors if it can not logout.
      */
     // public function sls($retrieveParametersFromServer = false, $sessionCallback = null)
     // {
@@ -132,7 +132,7 @@ class Saml2Auth
     // }
 
     /**
-     * Show metadata about the local sp. Use this to configure your saml2 IDP
+     * Show metadata about the local sp. Use this to configure your saml2 IDP.
      * @return mixed xml string representing metadata
      * @throws \InvalidArgumentException if metadata is not correctly set
      */
@@ -147,7 +147,7 @@ class Saml2Auth
             return $metadata;
         } else {
             throw new InvalidArgumentException(
-                'Invalid SP metadata: ' . implode(', ', $errors),
+                'Invalid SP metadata: '.implode(', ', $errors),
                 Error::METADATA_SP_INVALID
             );
         }

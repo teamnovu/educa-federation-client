@@ -1,10 +1,11 @@
 <?php
+
 namespace Teamnovu\SamlClient\Tests;
 
+use phpseclib\Crypt\RSA;
+use phpseclib\File\X509;
 use PHPUnit\Framework\TestCase;
 use Teamnovu\SamlClient\Certificate;
-use phpseclib\File\X509;
-use phpseclib\Crypt\RSA;
 
 class CertificateTest extends TestCase
 {

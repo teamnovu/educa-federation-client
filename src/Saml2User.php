@@ -5,7 +5,7 @@ namespace Teamnovu\SamlClient;
 use OneLogin\Saml2\Auth;
 
 /**
- * A simple class that represents the user that 'came' inside the saml2 assertion
+ * A simple class that represents the user that 'came' inside the saml2 assertion.
  */
 class Saml2User
 {
@@ -37,7 +37,7 @@ class Saml2User
     }
 
     /**
-     * Returns the requested SAML attribute
+     * Returns the requested SAML attribute.
      *
      * @param string $name The requested attribute of the user.
      * @return array|null Requested SAML attribute ($name).
@@ -60,16 +60,16 @@ class Saml2User
     }
 
     /**
-    * Parses a SAML property and adds this property to this user or returns the value
-    *
-    * @param string $samlAttribute
-    * @param string $propertyName
-    * @return array|null
-    */
+     * Parses a SAML property and adds this property to this user or returns the value.
+     *
+     * @param string $samlAttribute
+     * @param string $propertyName
+     * @return array|null
+     */
     public function parseUserAttribute($samlAttribute = null, $propertyName = null)
     {
         if (empty($samlAttribute)) {
-            return null;
+            return;
         }
         if (empty($propertyName)) {
             return $this->getAttribute($samlAttribute);
@@ -79,7 +79,7 @@ class Saml2User
     }
 
     /**
-     * Parse the saml attributes and adds it to this user
+     * Parse the saml attributes and adds it to this user.
      *
      * @param array $attributes Array of properties which need to be parsed, like this ['email' => 'urn:oid:0.9.2342.19200300.100.1.3']
      */
@@ -107,7 +107,5 @@ class Saml2User
         } elseif ($_GET['RelayState']) {
             return $_GET['RelayState'];
         }
-
-        return null;
     }
 }
