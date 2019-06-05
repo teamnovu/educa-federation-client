@@ -118,19 +118,19 @@ class Saml2Auth
      * Process a Saml response (assertion consumer service)
      * returns an array with errors if it can not logout
      */
-    public function sls($retrieveParametersFromServer = false, $sessionCallback = null)
-    {
-        $auth = $this->auth;
+    // public function sls($retrieveParametersFromServer = false, $sessionCallback = null)
+    // {
+    //     $auth = $this->auth;
 
-        // destroy the local session by firing the Logout event
-        $keepLocalSession = false;
+    //     // destroy the local session by firing the Logout event
+    //     $keepLocalSession = false;
 
-        $auth->processSLO($keepLocalSession, null, $retrieveParametersFromServer, $sessionCallback);
+    //     $auth->processSLO($keepLocalSession, null, $retrieveParametersFromServer, $sessionCallback);
 
-        $errors = $auth->getErrors();
+    //     $errors = $auth->getErrors();
 
-        return $errors;
-    }
+    //     return $errors;
+    // }
 
     /**
      * Show metadata about the local sp. Use this to configure your saml2 IDP
