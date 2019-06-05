@@ -5,6 +5,7 @@ namespace Teamnovu\SamlClient;
 use OneLogin\Saml2\Auth;
 use OneLogin\Saml2\Error;
 use Psr\Log\InvalidArgumentException;
+use Teamnovu\SamlClient\Exceptions\SamlUnauthenticatedException;
 
 class Saml2Auth
 {
@@ -94,7 +95,7 @@ class Saml2Auth
      * Process a Saml response (assertion consumer service)
      * When errors are encountered, it returns an array with proper description
      */
-    public function acs()
+    public function acs(): void
     {
         /** @var $auth Auth */
         $auth = $this->auth;
@@ -103,15 +104,13 @@ class Saml2Auth
 
         $errors = $auth->getErrors();
 
-        if (! empty($errors)) {
-            return $errors;
+        if (is_array($errors) && count($errors) > 0) {
+            throw $auth->getLastErrorException();
         }
 
         if (! $auth->isAuthenticated()) {
-            return ['error' => 'Could not authenticate'];
+            throw new SamlUnauthenticatedException();
         }
-
-        return null;
     }
 
     /**
