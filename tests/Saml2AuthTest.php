@@ -91,7 +91,6 @@ class Saml2AuthTest extends TestCase
         // Act
         $client = Saml2AuthFactory::forServiceProvider($config);
 
-
         // Assert
         $this->assertTrue(true);
     }

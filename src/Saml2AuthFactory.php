@@ -11,6 +11,7 @@ class Saml2AuthFactory
         $sp = $spConfig;
         $contact = $spConfig['contactPerson'];
         unset($spConfig['contactPerson']);
+
         return static::make([
             'sp' => $sp,
             'contactPerson' => $contact,
