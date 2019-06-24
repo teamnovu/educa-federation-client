@@ -25,17 +25,29 @@ $config = [
     'assertionConsumerService' => [
         'url' => 'http://localhost/saml/acs',
     ],
+    'contactPerson' => [
+        'technical' => [
+            'givenName' => 'Your Name',
+            'emailAddress' => 'your@email.com',
+        ],
+        'support' => [
+            'givenName' => 'Your Name',
+            'emailAddress' => 'your@email.com',
+        ],
+    ],
 ];
 ```
 
-
-| Name                         | Description                                                                                                                   | Example                                                                                                                                                                                       |
-|------------------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| x509cert                     | Contains certificate of service providers in x509 format without headers                                                      | MIIFdDCCA1ygAwIBAgIUPNptL10Zxoxj/AJLnVVpc2oA0KIwDQYJKoZIhvcNAQEF BQAwczELMAkGA1UEBgwCQ0gxDTALBgNVBAgMBEJlcm4xDTALBgNVBAcMBFRodW4x GDAWBgNVBAoMD0V4YW1wbGUgQ29tcGFueTEWMBQGA1UECwwNSVQgRGVw... |
-| privateKey                   | Contains certificate's private key of service provider                                                                        | -----BEGIN RSA PRIVATE KEY----- MIIJKQIBAAKCAgEAxT4Lt3bww5lsdEIk4WVcQ8LqTmK+k0kV8g/6SRi1lhr1TJ/u DZILFoCFUHuuqN9Vlh...                                                                        |
-| entityId                     | Usually this is the URL to the metadata of the service provider. Can be any valid URI.                                        | http://awesome-sp.ch/saml/sp/metadata                                                                                                                                                         |
-| assertionConsumerService.url | Url to which the SAMLResponse will be sent as HTTP-POST binding. Under this url you should process the response with this package. | http://awesome-sp.ch/saml/sp/acs                                                                                                                                                              |
-
+| Name                                 | Description                                                                                                                        | Example                                                                                                                                                                                       |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| x509cert                             | Contains certificate of service providers in x509 format without headers                                                           | MIIFdDCCA1ygAwIBAgIUPNptL10Zxoxj/AJLnVVpc2oA0KIwDQYJKoZIhvcNAQEF BQAwczELMAkGA1UEBgwCQ0gxDTALBgNVBAgMBEJlcm4xDTALBgNVBAcMBFRodW4x GDAWBgNVBAoMD0V4YW1wbGUgQ29tcGFueTEWMBQGA1UECwwNSVQgRGVw... |
+| privateKey                           | Contains certificate's private key of service provider                                                                             | -----BEGIN RSA PRIVATE KEY----- MIIJKQIBAAKCAgEAxT4Lt3bww5lsdEIk4WVcQ8LqTmK+k0kV8g/6SRi1lhr1TJ/u DZILFoCFUHuuqN9Vlh...                                                                        |
+| entityId                             | Usually this is the URL to the metadata of the service provider. Can be any valid URI.                                             | http://awesome-sp.ch/saml/sp/metadata                                                                                                                                                         |
+| assertionConsumerService.url         | Url to which the SAMLResponse will be sent as HTTP-POST binding. Under this url you should process the response with this package. | http://awesome-sp.ch/saml/sp/acs                                                                                                                                                              |
+| contactPerson.technical.givenName    | Name of your technical contact                                                                                                     | Hans Muster                                                                                                                                                                                   |
+| contactPerson.technical.emailAddress | E-Mail of your technical contact                                                                                                   | hans@muster.com                                                                                                                                                                               |
+| contactPerson.support.givenName      | Name of your support contact                                                                                                       | Hans Muster                                                                                                                                                                                   |
+| contactPerson.support.emailAddress   | Name of your support contact                                                                                                       | hans@muster.com                                                                                                                                                                               |
 
 ## Usage
 
@@ -47,7 +59,7 @@ You can use this package to process a SAMLResponse returned by the federation.
 use  Teamnovu\SamlClient\Saml2AuthFactory;
 
 $config = [ /* your config */ ];
-$client = Saml2AuthFactory::make($config);
+$client = Saml2AuthFactory::forServiceProvider($config);
 try {
     $client->acs();
 } catch(\Exception $ex) {
@@ -68,7 +80,7 @@ This package can generate the proper metadata xml code to be imported by the fed
 use  Teamnovu\SamlClient\Saml2AuthFactory;
 
 $config = [ /* your config */ ];
-$client = Saml2AuthFactory::make($config);
+$client = Saml2AuthFactory::forServiceProvider($config);
 $metadata = $client->getMetadata();
 
 echo $metadata;
