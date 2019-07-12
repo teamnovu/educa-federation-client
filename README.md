@@ -60,6 +60,9 @@ $config = [
 You can use this package to process a SAMLResponse returned by the federation.
 
 ```php
+
+require '../vendor/autoload.php';
+
 use  Teamnovu\SamlClient\Saml2AuthFactory;
 
 $config = [ /* your config */ ];
@@ -81,6 +84,9 @@ $user->getIntendedUrl(); // url originally passed as resource_name
 This package can generate the proper metadata xml code to be imported by the federation to enable the certain service provider (e.g. under a given route or to create a metadata.xml sent to the federation support).
 
 ```php
+
+require '../vendor/autoload.php';
+
 use  Teamnovu\SamlClient\Saml2AuthFactory;
 
 $config = [ /* your config */ ];
