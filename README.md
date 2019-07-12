@@ -5,6 +5,10 @@
 
 Official client for service providers connecting to https://federation.educa.ch/.
 
+## Example Implementation
+
+You can find a example Project at https://github.com/teamnovu/educa-federation-client-example.
+
 ## Installation
 
 You can install the package via composer:
