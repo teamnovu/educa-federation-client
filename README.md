@@ -61,7 +61,7 @@ You can use this package to process a SAMLResponse returned by the federation.
 
 ```php
 
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 use  Teamnovu\SamlClient\Saml2AuthFactory;
 
@@ -85,7 +85,7 @@ This package can generate the proper metadata xml code to be imported by the fed
 
 ```php
 
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 use  Teamnovu\SamlClient\Saml2AuthFactory;
 
