@@ -39,7 +39,7 @@ return [
     // Identity Provider Data that we want connect with our SP
     'idp' => [
         // Identifier of the IdP entity  (must be a URI)
-        'entityId' => 'https://federation.educa.ch/saml/metadata',
+        'entityId' => 'https://discovery-federation.educa.ch/saml/metadata',
         // SSO endpoint info of the IdP. (Authentication Request protocol)
         'singleSignOnService' => [
             // URL Target of the IdP where the SP will send the Authentication Request Message,
